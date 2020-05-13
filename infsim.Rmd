@@ -1,0 +1,54 @@
+---
+title: "Inferential Statistics Simulation"
+author: "Victor Wildner"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, cache = TRUE)
+```
+
+# Simulation Exercise
+
+Overview: In a few (2-3) sentences explain what is going to be reported on.
+
+## Setup
+
+```{r}
+library(tidyverse)
+set.seed(144)
+```
+
+## Simulations
+### Params
+```{r}
+n = 40
+lambda = 0.2
+simulations = 1000
+
+matrix(rexp(n * simulations, lambda), simulations)
+```
+
+
+
+
+## Questions
+
+Show the sample mean and compare it to the theoretical mean of the distribution.
+
+Show how variable the sample is (via variance) and compare it to the theoretical variance of the distribution.
+
+Show that the distribution is approximately normal.
+
+## Simulations
+Simulations: Include English explanations of the simulations you ran, with the accompanying R code. Your explanations should make clear what the R code accomplishes.
+
+## Sample Mean x Theoretical Mean
+Sample Mean versus Theoretical Mean: Include figures with titles. In the figures, highlight the means you are comparing. Include text that explains the figures and what is shown on them, and provides appropriate numbers.
+
+Sample Variance versus Theoretical Variance: Include figures (output from R) with titles. Highlight the variances you are comparing. Include text that explains your understanding of the differences of the variances.
+
+Distribution: Via figures and text, explain how one can tell the distribution is approximately normal.
+
+
+
