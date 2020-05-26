@@ -1,11 +1,39 @@
 ---
 title: "Inferential Statistics Simulation"
 author: "Victor Wildner"
-output: pdf_document
+output: github_document
 ---
 
-# Overview
->In this simulation we are doing a quick overview investigation of the exponential distribution and comparison with the Central Limit Theorem. We will investigate the distribution of averages of 40 exponentials from a thousand simulations (i.e. 1000x40 matrix). The project is set in literate programming, allowing full research reproducibility.
+> In this simulation we are doing a quick overview investigation of the exponential distribution and comparison with the Central Limit Theorem. We will investigate the distribution of averages of 40 exponentials from a thousand simulations (i.e. 1000x40 matrix). The project is set in literate programming, allowing full research reproducibility.
+
+## Tools Used
+
+  - R language compiler
+  - R base graphic devices
+  - Tidyverse library packages
+  - RMarkdown library package
+  - Knitr library package
+
+## Files
+
+  - **[CODEBOOK](https://github.com/vcwild/infsim/blob/master/report.html)**:
+    step-by-step book explaining the code
+    processing.
+  - **[Figures](https://github.com/vcwild/infsim/tree/master/infsim_files/figure-html)**:
+    the plotted images
+  - **[Infsim.Rmd](https://github.com/vcwild/infsim/blob/master/infsim.Rmd)**: the script to compile the project from source
+
+## Build from Source
+
+Inside the project root folder, execute the following
+
+```
+R
+library(rmarkdown)
+rmarkdown::render("infsim.Rmd", "html_document")
+```
+
+# CODEBOOK
 
 ## Setup
 
