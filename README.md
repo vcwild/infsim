@@ -23,7 +23,7 @@ Victor Wildner
   - **[CODEBOOK](https://github.com/vcwild/infsim/blob/master/report.html)**:
     step-by-step book explaining the code
     processing.
-  - **[Figures](https://github.com/vcwild/infsim/tree/master/infsim_files/figure-html)**:
+  - **[Figures](https://github.com/vcwild/infsim/tree/master/infsim_files/figure-gfm)**:
     the plotted
     images
   - **[Infsim.Rmd](https://github.com/vcwild/infsim/blob/master/infsim.Rmd)**:
