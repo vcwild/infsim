@@ -1,6 +1,5 @@
 Inferential Statistics Simulation
 ================
-Victor Wildner
 
 > In this simulation we are doing a quick overview investigation of the
 > exponential distribution and comparison with the Central Limit
