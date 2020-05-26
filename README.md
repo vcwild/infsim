@@ -20,7 +20,7 @@ Victor Wildner
 
 ## Files
 
-  - **[CODEBOOK](https://github.com/vcwild/infsim/blob/master/report.html)**:
+  - **[CODEBOOK](https://github.com/vcwild/infsim/blob/master/infsim.pdf)**:
     step-by-step book explaining the code
     processing.
   - **[Figures](https://github.com/vcwild/infsim/tree/master/infsim_files/figure-gfm)**:
