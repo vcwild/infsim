@@ -1,10 +1,13 @@
----
-title: "Inferential Statistics Simulation"
-author: "Victor Wildner"
-output: github_document
----
+Inferential Statistics Simulation
+================
+Victor Wildner
 
-> In this simulation we are doing a quick overview investigation of the exponential distribution and comparison with the Central Limit Theorem. We will investigate the distribution of averages of 40 exponentials from a thousand simulations (i.e. 1000x40 matrix). The project is set in literate programming, allowing full research reproducibility.
+> In this simulation we are doing a quick overview investigation of the
+> exponential distribution and comparison with the Central Limit
+> Theorem. We will investigate the distribution of averages of 40
+> exponentials from a thousand simulations (i.e. 1000x40 matrix). The
+> project is set in literate programming, allowing full research
+> reproducibility.
 
 ## Tools Used
 
@@ -12,7 +15,8 @@ output: github_document
   - R base graphic devices
   - Tidyverse library packages
   - RMarkdown library package
-  - Knitr library package
+  - Knitr library
+    package
 
 ## Files
 
@@ -20,34 +24,45 @@ output: github_document
     step-by-step book explaining the code
     processing.
   - **[Figures](https://github.com/vcwild/infsim/tree/master/infsim_files/figure-html)**:
-    the plotted images
-  - **[Infsim.Rmd](https://github.com/vcwild/infsim/blob/master/infsim.Rmd)**: the script to compile the project from source
+    the plotted
+    images
+  - **[Infsim.Rmd](https://github.com/vcwild/infsim/blob/master/infsim.Rmd)**:
+    the script to compile the project from source
 
 ## Build from Source
 
 Inside the project root folder, execute the following
 
-```
-R
-library(rmarkdown)
-rmarkdown::render("infsim.Rmd", "html_document")
-```
+    R
+    library(rmarkdown)
+    rmarkdown::render("infsim.Rmd", "html_document")
 
 # CODEBOOK
 
 ## Setup
 
-```{r setup}
+``` r
 knitr::opts_chunk$set(echo = TRUE, cache = TRUE)
 require(ggplot2)
+```
+
+    ## Loading required package: ggplot2
+
+``` r
 require(knitr)
+```
+
+    ## Loading required package: knitr
+
+``` r
 set.seed(144)
 ```
 
 ## Simulations
+
 ### Params
 
-```{r params}
+``` r
 n = 40
 lambda = 0.2
 simulations = 1000
@@ -59,7 +74,7 @@ distro <- matrix(
 
 ### Stats
 
-```{r stats}
+``` r
 # Means
 row_means <- apply(distro, 1, mean)
 calc_mean <- mean(row_means)
@@ -70,25 +85,27 @@ exp_sd <- 1/lambda * 1/sqrt(n)
 # Variance
 calc_var <- calc_sd^2
 exp_var <- exp_sd^2
-    
 ```
 
-The calculated mean is **`r round(calc_mean[[1]], 3)`** and the expected mean is **`r round(exp_mean, 3)`**, meaning the simulation result is approximately the same as E(x).
+The calculated mean is **4.998** and the expected mean is **5**, meaning
+the simulation result is approximately the same as E(x).
 
-```{r histogram}
+``` r
 hist(row_means, col = "slateblue1")
 ```
 
+![](infsim_files/figure-gfm/histogram-1.png)<!-- -->
 
-The simulation standard deviation is **`r round(calc_sd[[1]], 3)`** and the expected sd is **`r round(exp_sd, 3)`**.
+The simulation standard deviation is **0.807** and the expected sd is
+**0.791**.
 
-The calculated variance is **`r round(calc_var, 3)`** and the expected is **`r round(exp_var, 3)`**, meaning the variance of the simulation has approximately the same spread as expected by the CLT.
-
-
+The calculated variance is **0.652** and the expected is **0.625**,
+meaning the variance of the simulation has approximately the same spread
+as expected by the CLT.
 
 ## Plotting the Comparison
 
-```{r comparison}
+``` r
 df_rmeans <- data.frame(row_means)
 
 ggplot(df_rmeans, aes(x = row_means)) +
@@ -119,11 +136,17 @@ ggplot(df_rmeans, aes(x = row_means)) +
         y = ""
     ) +
     theme_minimal()
-
-qqnorm(row_means)
-qqline(row_means, col = "red")
-    
 ```
 
-By the comparison, the sample distribution (darker) is iid distributed, being almost identical to the theoretical distribution (cyan), therefore agreeing with the Central Limit Theorem.
+![](infsim_files/figure-gfm/comparison-1.png)<!-- -->
 
+``` r
+qqnorm(row_means)
+qqline(row_means, col = "red")
+```
+
+![](infsim_files/figure-gfm/comparison-2.png)<!-- -->
+
+By the comparison, the sample distribution (darker) is iid distributed,
+being almost identical to the theoretical distribution (cyan), therefore
+agreeing with the Central Limit Theorem.
