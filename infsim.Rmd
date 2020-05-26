@@ -91,7 +91,11 @@ ggplot(df_rmeans, aes(x = row_means)) +
         y = ""
     ) +
     theme_minimal()
+
+qqnorm(row_means)
+qqline(row_means, col = "red")
     
 ```
 
 By the comparison, the sample distribution (darker) is iid distributed, being almost identical to the theoretical distribution (cyan), therefore agreeing with the Central Limit Theorem.
+
